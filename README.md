@@ -42,6 +42,19 @@ source .env
 set +a
 ```
 
+Si usas **PowerShell**, puedes lograr el mismo efecto leyendo el archivo `.env` y
+asignando cada par clave=valor a variables de entorno de la sesión. El script
+omite las líneas que empiezan con `#` o aquellas en blanco:
+
+```powershell
+Get-Content .env | ForEach-Object {
+    if (-not $_.Trim().StartsWith('#') -and $_.Trim()) {
+        $name, $value = $_ -split '=', 2
+        $env:$name = $value
+    }
+}
+```
+
 ## Compilación y ejecución
 
 1. Compila todos los módulos desde la raíz del proyecto:

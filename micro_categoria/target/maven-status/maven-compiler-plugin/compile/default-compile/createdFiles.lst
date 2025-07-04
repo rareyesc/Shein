@@ -1,0 +1,9 @@
+shein\micro_categoria\exception\ResourceNotFoundException.class
+shein\micro_categoria\entity\Categoria.class
+shein\micro_categoria\MicroCategoriaApplication.class
+shein\micro_categoria\service\CategoriaService.class
+shein\micro_categoria\service\CategoriaServiceImpl.class
+shein\micro_categoria\repository\CategoriaRepository.class
+shein\micro_categoria\config\OpenApiConfig.class
+shein\micro_categoria\controller\CategoriaController.class
+shein\micro_categoria\exception\GlobalExceptionHandler.class

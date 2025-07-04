@@ -32,6 +32,8 @@ Copia el archivo `.env.example` a `.env` y completa los valores de tus credencia
 cp .env.example .env
 ```
 
+**Importante:** asegúrate de no subir el archivo `.env` al repositorio para evitar exponer datos sensibles.
+
 Antes de iniciar los microservicios carga las variables en la terminal para que Spring Boot pueda leerlas:
 
 ```bash

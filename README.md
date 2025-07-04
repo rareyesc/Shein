@@ -82,10 +82,17 @@ Get-ChildItem Env:DB_USERNAME,Env:DB_PASSWORD,Env:CLOUD_AWS_ACCESS_KEY,Env:CLOUD
    ```bash
    mvn clean package
    ```
-2. Ejecuta el microservicio que necesites, por ejemplo el de productos:
+2. Ejecuta el microservicio que necesites desde la terminal (por ejemplo el de
+   productos):
    ```bash
    mvn -pl micro_productos spring-boot:run
    ```
+
+   > **Nota:** si inicias un servicio haciendo clic en `Run` sobre la clase
+   > `MicroXApplication` dentro de tu IDE, las variables definidas en `.env` no
+   > se cargarán y Spring Boot fallará al obtener la configuración de la base de
+   > datos o de AWS. Abre una terminal, carga las variables con `source .env` y
+   > ejecuta el comando anterior para evitar ese problema.
 
 ## Documentación
 

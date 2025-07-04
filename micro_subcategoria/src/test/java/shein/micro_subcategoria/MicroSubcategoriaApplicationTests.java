@@ -1,10 +1,10 @@
-package shein.micro_productos;
+package shein.micro_subcategoria;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MicroGeneroApplicationTests {
+class MicroSubcategoriaApplicationTests {
     @Test
     void contextLoads() {}
 }

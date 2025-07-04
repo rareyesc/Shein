@@ -1,0 +1,71 @@
+<!-- ecovolunteer/pom.xml -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>shein</groupId>
+    <artifactId>shein</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <name>Proyecto shein</name>
+    <description>Proyecto padre para los microservicios de shein</description>
+
+    <!-- Listado de módulos hijos -->
+    <modules>
+        <module>micro_productos</module>
+        <module>micro_pedido</module>
+        <module>micro_correopedido</module>
+        <module>micro_genero</module>
+        <module>micro_categoria</module>
+        <module>micro_subcategoria</module>
+        <module>micro_color</module>
+        <module>micro_talla</module>
+        <module>micro_estado</module>
+
+    </modules>
+
+    <!-- Propiedades comunes -->
+    <properties>
+        <java.version>17</java.version>
+        <spring.boot.version>3.3.3</spring.boot.version>
+    </properties>
+
+    <!-- Gestión de dependencias comunes -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- Importa el BOM de Spring Boot para gestionar versiones de dependencias -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- Plugins comunes -->
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- Plugin de Spring Boot -->
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>3.1.5</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.2.0</version>
+                    <configuration>
+                        <encoding>UTF-8</encoding>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

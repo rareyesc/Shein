@@ -1,9 +1,0 @@
-shein\micro_color\repository\ColorRepository.class
-shein\micro_color\controller\ColorController.class
-shein\micro_color\MicroColorApplication.class
-shein\micro_color\exception\GlobalExceptionHandler.class
-shein\micro_color\entity\Color.class
-shein\micro_color\service\ColorService.class
-shein\micro_color\exception\ResourceNotFoundException.class
-shein\micro_color\service\ColorServiceImpl.class
-shein\micro_color\config\OpenApiConfig.class

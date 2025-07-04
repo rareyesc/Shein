@@ -1,9 +1,0 @@
-shein\micro_correopedido\controller\CorreoPedidoController.class
-shein\micro_correopedido\config\OpenApiConfig.class
-shein\micro_correopedido\service\CorreoPedidoServiceImpl.class
-shein\micro_correopedido\entity\CorreoPedido.class
-shein\micro_correopedido\exception\GlobalExceptionHandler.class
-shein\micro_correopedido\exception\ResourceNotFoundException.class
-shein\micro_correopedido\MicroCorreoPedidoApplication.class
-shein\micro_correopedido\repository\CorreoPedidoRepository.class
-shein\micro_correopedido\service\CorreoPedidoService.class

@@ -1,4 +1,4 @@
-package shein.micro_productos;
+package shein.micro_pedido;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

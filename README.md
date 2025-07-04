@@ -4,11 +4,15 @@ Sistema de inventario compuesto por varios microservicios creados con Spring Boo
 
 ## Estructura del proyecto
 
-- **micro_productos**: gestión de productos y subida de imágenes a S3
-- **micro_pedido**: manejo de órdenes de compra
-- **micro_correopedido**: envío de notificaciones por correo
-- **micro_genero**, **micro_categoria**, **micro_subcategoria**, **micro_color**, **micro_talla**: catálogos auxiliares
-- **micro_estado**: estados de un pedido
+- **micro_productos**: gestión completa de productos e inventario, además de la subida de imágenes a S3.
+- **micro_pedido**: manejo de órdenes de compra y persistencia de pedidos.
+- **micro_correopedido**: envío de notificaciones de confirmación por correo.
+- **micro_genero**: catálogo de géneros para clasificar productos.
+- **micro_categoria**: categorías principales de la tienda.
+- **micro_subcategoria**: subdivisiones de cada categoría.
+- **micro_color**: colores disponibles para los productos.
+- **micro_talla**: tallas de prendas y calzado.
+- **micro_estado**: estados que puede tener un pedido.
 
 Cada servicio es un proyecto Maven independiente incluido en el POM padre.
 
@@ -23,6 +27,15 @@ Cada servicio es un proyecto Maven independiente incluido en el POM padre.
 | micro-productos | 8096 |
 | micro-subcategoria | 8097 |
 | micro-talla | 8098 |
+
+## Funcionamiento general
+
+Cada microservicio es una aplicación Spring Boot independiente que expone una API REST.
+Todos comparten una base de datos MySQL llamada **e_commerce** y usan `springdoc-openapi`
+para generar documentación interactiva. El microservicio de productos también
+almacena imágenes en un bucket de S3 configurado mediante variables de entorno.
+Puedes ejecutar los servicios de forma individual o en conjunto, según lo que
+necesites probar.
 
 ## Variables de entorno
 
@@ -73,3 +86,11 @@ Get-ChildItem Env:DB_USERNAME,Env:DB_PASSWORD,Env:CLOUD_AWS_ACCESS_KEY,Env:CLOUD
    ```bash
    mvn -pl micro_productos spring-boot:run
    ```
+
+## Documentación
+
+Una vez iniciado un servicio abre tu navegador en
+`http://localhost:<puerto>/swagger-ui/index.html` para
+explorar su API. Ahí encontrarás todas las operaciones y modelos disponibles
+para ese microservicio. Repite el proceso para cada módulo cambiando el puerto
+correspondiente.

@@ -47,12 +47,20 @@ asignando cada par clave=valor a variables de entorno de la sesión. El script
 omite las líneas que empiezan con `#` o aquellas en blanco:
 
 ```powershell
-Get-Content .env | ForEach-Object {
-    if (-not $_.Trim().StartsWith('#') -and $_.Trim()) {
-        $name, $value = $_ -split '=', 2
-        $env:$name = $value
-    }
-}
+Get-Content .env |
+  Where-Object { $_.Trim() -ne '' -and -not $_.Trim().StartsWith('#') } |
+  ForEach-Object {
+    $kv = $_ -split '=', 2
+    $key = $kv[0].Trim()
+    $val = $kv[1].Trim()
+    # Asigna la variable de entorno en el scope del proceso actual
+    Set-Item -Path "Env:$key" -Value $val
+  }
+```
+Luego valida que las variables hubieran quedado cargadas correctamente:
+
+```powershell
+Get-ChildItem Env:DB_USERNAME,Env:DB_PASSWORD,Env:CLOUD_AWS_ACCESS_KEY,Env:CLOUD_AWS_SECRET_KEY,Env:CLOUD_AWS_REGION,Env:AWS_S3_BUCKET
 ```
 
 ## Compilación y ejecución

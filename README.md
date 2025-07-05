@@ -96,7 +96,6 @@ Get-ChildItem Env:DB_USERNAME,Env:DB_PASSWORD,Env:CLOUD_AWS_ACCESS_KEY,Env:CLOUD
 
 Si prefieres iniciar los servicios directamente desde IntelliJ IDEA, instala el complemento EnvFile y configúralo en cada "Run Configuration" para cargar el archivo .env automáticamente. Con ello podrás usar el botón Run sin preocuparte por las variables de entorno.
 
-
 ## Documentación
 
 Una vez iniciado un servicio abre tu navegador en

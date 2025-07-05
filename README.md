@@ -94,6 +94,8 @@ Get-ChildItem Env:DB_USERNAME,Env:DB_PASSWORD,Env:CLOUD_AWS_ACCESS_KEY,Env:CLOUD
    > datos o de AWS. Abre una terminal, carga las variables con `source .env` y
    > ejecuta el comando anterior para evitar ese problema.
 
+Si prefieres iniciar los servicios directamente desde IntelliJ IDEA, instala el complemento EnvFile y configúralo en cada "Run Configuration" para cargar el archivo .env automáticamente. Con ello podrás usar el botón Run sin preocuparte por las variables de entorno.
+
 ## Documentación
 
 Una vez iniciado un servicio abre tu navegador en
@@ -101,3 +103,24 @@ Una vez iniciado un servicio abre tu navegador en
 explorar su API. Ahí encontrarás todas las operaciones y modelos disponibles
 para ese microservicio. Repite el proceso para cada módulo cambiando el puerto
 correspondiente.
+
+## Solución de problemas
+
+Si al ejecutar `mvn -pl micro_x spring-boot:run` aparece un mensaje como
+`Could not obtain connection to query metadata` y la aplicación se detiene,
+generalmente se debe a que no se pudo conectar con MySQL. Revisa lo siguiente:
+
+1. **MySQL activo:** valida que el servicio esté corriendo en `localhost:3306` y
+   que la base `e_commerce` exista. Puedes probarlo desde la terminal con:
+   ```bash
+   mysql -u "$DB_USERNAME" -p"$DB_PASSWORD" -e "SELECT 1;"
+   ```
+2. **Variables de entorno en la misma terminal:** ejecuta `printenv DB_USERNAME`
+   para confirmar que las variables se cargaron antes de iniciar el
+   microservicio.
+3. **Puerto diferente:** si tu servidor MySQL usa otro puerto o host, ajusta la
+   propiedad `spring.datasource.url` en el archivo
+   `src/main/resources/application.properties` del servicio correspondiente.
+
+Con la base de datos accesible y las variables definidas, Spring Boot debería
+iniciar sin problemas.
